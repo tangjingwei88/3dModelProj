@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CharAnimation
   - Plane
+  - enemy
+  - player
   layers:
   - Default
   - TransparentFX
