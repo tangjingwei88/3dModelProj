@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroySelf : MonoBehaviour {
 
-    private float destroyTime = 5f;
+    public float destroyTime = 5f;
     private float timer = 0;
 	
 	void Start () {
@@ -14,7 +14,7 @@ public class DestroySelf : MonoBehaviour {
 	
 	void Update () {
         timer = timer + Time.deltaTime;
-        if(timer > 5)
+        if(timer > destroyTime)
         {
             Destroy(gameObject);
         }

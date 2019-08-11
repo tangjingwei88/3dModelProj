@@ -53,7 +53,7 @@ public class Controller : MonoBehaviour {
     void Update () {
 		if(Input.GetMouseButtonDown(0))
         {
-            Debug.LogError("dd");
+            //Debug.LogError("dd");
             //1. 获取鼠标点击位置
             //创建射线;从摄像机发射一条经过鼠标当前位置的射线
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -61,11 +61,15 @@ public class Controller : MonoBehaviour {
             
             if(Physics.Raycast(ray,out hitInfo))
             {
-                Debug.LogError("hitInfo.collider.gameObject.tag " + hitInfo.collider.gameObject.tag);
+                //Debug.LogError("hitInfo.collider.gameObject.tag " + hitInfo.collider.gameObject.tag);
                 //获取碰撞点位置
                 if (hitInfo.collider.gameObject.tag == "Plane")
                 {
                     target = hitInfo.point;
+
+                    GameObject obj = LoadPrefab("Assets/Prefabs/Particles/Seave_qiu.prefab");
+                    obj.transform.position = target + new Vector3(0,1f,0);
+                    obj.transform.rotation = Quaternion.Euler(Vector3.zero);
                     target.y = 0.5f;
                     isOver = false;
                     //Debug.LogError("target"+ target);
@@ -104,7 +108,7 @@ public class Controller : MonoBehaviour {
         for (int i = 0; i < 3;i++)
         {
             GameObject obj = LoadPrefab("Assets/Prefabs/Particles/Effect_jianshi_di.prefab");
-            obj.transform.position = player.transform.position;
+            obj.transform.position = player.transform.position + new Vector3(0,200,0);
             //obj.transform.rotation = player.transform.rotation + Quaternion.Euler(new Vector3(30f, 0, 0)) ;
             obj.GetComponent<Rigidbody>().velocity = player.transform.forward * bulletSpeed;
 

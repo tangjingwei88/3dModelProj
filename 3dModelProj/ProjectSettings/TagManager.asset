@@ -8,6 +8,7 @@ TagManager:
   - Plane
   - enemy
   - player
+  - bullet
   layers:
   - Default
   - TransparentFX
